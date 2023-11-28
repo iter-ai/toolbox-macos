@@ -47,4 +47,4 @@ There are several considerations when designing the agent architecture:
 
 ### Apple Shortcuts
 
-See [integrations/shortcuts/README](./integrations/shortcuts)
+See [integration/shortcuts/README](./integration/shortcuts)

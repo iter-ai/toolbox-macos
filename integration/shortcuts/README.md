@@ -2,7 +2,7 @@
 
 [Shortcuts](<https://en.wikipedia.org/wiki/Shortcuts_(app)>) is a macOS app that allows users to automate tasks on their
 devices.
-`toolbox-macos` install the `iter toolbox` shortcut that helps exposes the shortcuts as endpoints for the model to call.
+`toolbox-macos` installs the `iter toolbox` shortcut that helps expose the shortcuts as endpoints for the model to call.
 Essentially, the `iter toolbox` works as a router, triggering the correct shortcut based on the input action name and
 pass along parameters.
 
@@ -14,7 +14,7 @@ The tool spec file (`spec.toolbox.yaml`) provides a helpful interface for mainta
 lists all the available actions and their parameters.
 More importantly, we edit the spec file to override the descriptions of some parameters and actions. The default
 descriptions are not very user-friendly and often confuse the model. You can look for `override` in the spec file to see
-changes we made.
+the changes we made.
 
 `integration/shortcuts/script` contains the code for building the `iter toolbox` shortcut.
 
@@ -23,8 +23,8 @@ changes we made.
   in `integration/shortcuts/template`.
 - `format.mts` generates a spec file `spec.toolbox.yaml` that contains the list of actions and parameters for
   the `iter toolbox` shortcut.
-- `build.mts` stiches all the template shortcuts together and generate the final `iter toolbox` shortcut. Here, we adds
-  conditional blocks that check the input action name, parses the parameters, and triggers the correct shortcut.
+- `build.mts` stiches all the template shortcuts together and generates the final `iter toolbox` shortcut. Here, we add
+  conditional blocks that check the input action name, parse the parameters, and trigger the correct shortcut.
 - `run.mts` is a helpful script that runs the `iter toolbox` shortcut with the given input action name and parameters.
   This is useful for debugging.
 

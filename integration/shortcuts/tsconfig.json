@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "module": "node16",
+    "moduleResolution": "node16",
+    "target": "es2020",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "rootDir": "./",
+    "baseUrl": "./",
+    "resolveJsonModule": true
+  }
+}

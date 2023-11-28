@@ -1,0 +1,27 @@
+{
+  "name": "@iter-ai/toolbox-macos-integration-shortcuts",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "license": "Unlicense",
+  "author": "Qi Linzhi <qi@iter.com>",
+  "type": "module",
+  "main": "exports.ts",
+  "scripts": {
+    "build": "tsx script/build.mts",
+    "format": "tsx script/format.mts",
+    "run": "tsx script/run.mts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@iter-ai/toolbox-macos-integration": "*",
+    "plist": "^3.0.5",
+    "yaml": "^2.3.4",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.18.9",
+    "@types/plist": "^3.0.5",
+    "tsx": "^4.5.0"
+  }
+}

@@ -1,0 +1,3532 @@
+- type: shortcuts
+  definition:
+    name: com.apple.mobilenotes.create.note
+    description: Create Note
+    parameters:
+      WFCreateNoteInput:
+        required: true
+        description: Title of the note to create
+        type: string
+      folder:
+        required: false
+        description: Folder of the note
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.mobilenotes.SharingExtension
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: CreateNoteLinkAction
+          BundleIdentifier: com.apple.Notes
+          Name: Notes
+          TeamIdentifier: "0000000000"
+        UUID: F98D3960-F992-45D0-B85F-A12B132A470D
+        WFCreateNoteInput:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        folder:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFCreateNoteInput:
+        - WFCreateNoteInput
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      folder:
+        - folder
+        - Value
+- type: shortcuts
+  definition:
+    name: com.apple.Notes.CloseAppLocationLinkAction
+    description: Close Notes View
+    parameters:
+      target:
+        required: true
+        description: View
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.Notes.CloseAppLocationLinkAction
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: CloseAppLocationLinkAction
+          BundleIdentifier: com.apple.Notes
+          Name: Notes
+          TeamIdentifier: "0000000000"
+        UUID: 31FF1EB4-BBE5-4734-A164-6B54E3448279
+        target:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      target:
+        - target
+        - Value
+- type: shortcuts
+  definition:
+    name: com.apple.Notes.CloseNoteLinkAction
+    description: Close Note
+    parameters:
+      target:
+        required: true
+        description: Note
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.Notes.CloseNoteLinkAction
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: CloseNoteLinkAction
+          BundleIdentifier: com.apple.Notes
+          Name: Notes
+          TeamIdentifier: "0000000000"
+        UUID: C9C00818-312D-438E-9B3E-48616264DBF1
+        target:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      target:
+        - target
+        - Value
+- type: shortcuts
+  definition:
+    name: com.apple.Notes.DeleteNotesLinkAction
+    description: Delete Notes
+    parameters:
+      entities:
+        required: true
+        description: Notes
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.Notes.DeleteNotesLinkAction
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: DeleteNotesLinkAction
+          BundleIdentifier: com.apple.Notes
+          Name: Notes
+          TeamIdentifier: "0000000000"
+        UUID: 1985ACA0-A66E-4E1F-B85B-4E1619B282F1
+        entities:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      entities:
+        - entities
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.appendnote
+    description: Append to Note
+    parameters:
+      WFInput:
+        required: true
+        description: WFInput
+        type: string
+      WFNote:
+        required: true
+        description: WFNote
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.appendnote
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: AppendToNoteLinkAction
+          BundleIdentifier: com.apple.Notes
+          Name: Notes
+          TeamIdentifier: "0000000000"
+        UUID: CEB04E26-706F-42C6-A99D-725C49CFE389
+        WFInput:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        WFNote:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFInput:
+        - WFInput
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      WFNote:
+        - WFNote
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.filter.notes
+    description: is.workflow.actions.filter.notes
+    parameters:
+      WFContentItemInputParameter:
+        required: true
+        description: WFContentItemInputParameter
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.filter.notes
+      WFWorkflowActionParameters:
+        UUID: 6DAB7631-047B-4302-9A2A-06B6B3394E03
+        WFContentItemInputParameter:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFContentItemInputParameter:
+        - WFContentItemInputParameter
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.getdirections
+    description: >-
+      Opens directions to the location passed into this action in your choice of
+      Maps, Google Maps, Citymapper, Transit, or Waze. For example, you can use
+      this action to get directions to an upcoming event on your calendar.
+
+      Returns undefined (undefined)
+    parameters:
+      WFDestination:
+        required: true
+        description: " (WFLocationParameter) Destination"
+        type: string
+      WFGetDirectionsActionMode:
+        required: false
+        description: " (WFDynamicEnumerationParameter) Mode"
+        type: string
+      WFLocation:
+        required: true
+        description: " (WFLocationParameter) Location"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.getdirections
+      WFWorkflowActionParameters:
+        WFDestination:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFGetDirectionsActionMode:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFLocation:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFDestination:
+        - WFDestination
+        - Value
+      WFGetDirectionsActionMode:
+        - WFGetDirectionsActionMode
+        - Value
+      WFLocation:
+        - WFLocation
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.getmapslink
+    description: >-
+      Creates a URL to search for the location, place, or text that was passed
+      into the action in a separate maps app.
+
+      Returns Maps URL (NSURL)
+    parameters:
+      WFInput:
+        required: true
+        description: " (WFVariablePickerParameter) Location"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.getmapslink
+      WFWorkflowActionParameters:
+        UUID: A92327F0-1E86-42F1-A7DE-4A06AC85D45A
+        WFInput:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFInput:
+        - WFInput
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.gettraveltime
+    description: >-
+      Estimates the amount of time it will take to travel to the location passed
+      into this action.
+
+      Returns Travel Time (WFTripInfo)
+    parameters:
+      WFDestination:
+        required: true
+        description: " (WFLocationParameter) End Location Address"
+        type: string
+      WFGetDirectionsActionMode:
+        required: false
+        description: " (WFEnumerationParameter) Mode"
+        type: string
+      WFGetDirectionsCustomLocation:
+        required: true
+        description: " (WFLocationParameter) Start Location Address"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.gettraveltime
+      WFWorkflowActionParameters:
+        UUID: 9AE8CCD1-0679-47D0-8479-F3B886175446
+        WFDestination:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFGetDirectionsActionMode:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFGetDirectionsCustomLocation:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFDestination:
+        - WFDestination
+        - Value
+      WFGetDirectionsActionMode:
+        - WFGetDirectionsActionMode
+        - Value
+      WFGetDirectionsCustomLocation:
+        - WFGetDirectionsCustomLocation
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.searchmaps
+    description: Opens your choice of Maps, Google Maps, or Waze and searches for
+      the location, place, or text that was passed into the action.
+    parameters:
+      WFInput:
+        required: true
+        description: " (WFLocationParameter) Location"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.searchmaps
+      WFWorkflowActionParameters:
+        WFInput:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFInput:
+        - WFInput
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.getcurrentlocation
+    description: |-
+      Gets the current location of the device.
+      Returns Current Location (CLLocation)
+    parameters: {}
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.getcurrentlocation
+      WFWorkflowActionParameters:
+        UUID: 169A43FA-E3E4-43DA-9D20-BD83B642358C
+    parameterIdToTemplatePath: {}
+- type: shortcuts
+  definition:
+    name: com.apple.iCal.SetCalendarFocusConfiguration
+    description: com.apple.iCal.SetCalendarFocusConfiguration
+    parameters:
+      FocusMode:
+        required: true
+        description: FocusMode
+        type: string
+      Mode:
+        required: true
+        description: Mode
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.iCal.SetCalendarFocusConfiguration
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: SetCalendarFocusConfiguration
+          BundleIdentifier: com.apple.iCal
+          Name: Calendar
+          TeamIdentifier: "0000000000"
+        FocusMode:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        Mode:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        UUID: F2D065E1-7F9F-4A5B-B280-758CDB5D6214
+    parameterIdToTemplatePath:
+      FocusMode:
+        - FocusMode
+        - Value
+      Mode:
+        - Mode
+        - Value
+- type: shortcuts
+  definition:
+    name: com.flexibits.fantastical2.mac.FKRChangeCalendarSetIntent
+    description: com.flexibits.fantastical2.mac.FKRChangeCalendarSetIntent
+    parameters:
+      calendarSet:
+        required: true
+        description: calendarSet
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.flexibits.fantastical2.mac.FKRChangeCalendarSetIntent
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: FKRChangeCalendarSetIntent
+          BundleIdentifier: com.flexibits.fantastical2.mac
+          Name: Fantastical
+          TeamIdentifier: 85C27NK92C
+        UUID: 1E24B942-B11D-49D9-8DB9-310AAD0FFBCE
+        calendarSet:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      calendarSet:
+        - calendarSet
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.addnewcalendar
+    description: |-
+      Creates a new calendar.
+      Returns New Calendar (NSString)
+    parameters:
+      CalendarName:
+        required: true
+        description: " (WFTextInputParameter) Calendar Name"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.addnewcalendar
+      WFWorkflowActionParameters:
+        CalendarName:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        UUID: A8A8135F-C9C8-48A3-8C43-E3D5CD0326BB
+    parameterIdToTemplatePath:
+      CalendarName:
+        - CalendarName
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.filter.calendarevents
+    description: Get calendar events in the next number of days
+    parameters:
+      WFContentItemFilter:
+        required: true
+        description: (WFContentItemFilter) number of days
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.filter.calendarevents
+      WFWorkflowActionParameters:
+        UUID: 2458EEE0-6A0B-4D8A-B3E1-F9348F8929D0
+        WFContentItemFilter:
+          Value:
+            WFActionParameterFilterPrefix: 1
+            WFActionParameterFilterTemplates:
+              - Bounded: true
+                Operator: 1000
+                Property: Start Date
+                Removable: false
+                Values:
+                  Number:
+                    Value:
+                      Type: Variable
+                      VariableName: var
+                    WFSerializationType: WFTextTokenAttachment
+                  Unit: 16
+            WFContentPredicateBoundedDate: false
+          WFSerializationType: WFContentPredicateTableTemplate
+    parameterIdToTemplatePath:
+      WFContentItemFilter:
+        - WFContentItemFilter
+        - Value
+        - WFActionParameterFilterTemplates
+        - "0"
+        - Values
+        - Number
+        - Value
+  override:
+    name: is.workflow.actions.filter.calendarevents.in.the.next
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.filter.calendarevents
+    description: is.workflow.actions.filter.calendarevents
+    parameters:
+      AnotherDate:
+        required: true
+        description: WFContentItemFilter
+        type: string
+      Date:
+        required: true
+        description: WFContentItemFilter
+        type: string
+      Number:
+        required: true
+        description: WFContentItemFilter
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.filter.calendarevents
+      WFWorkflowActionParameters:
+        UUID: 3AE7DA8D-A47B-4B29-AB77-37BBC34B63C0
+        WFContentItemFilter:
+          Value:
+            WFActionParameterFilterPrefix: 1
+            WFActionParameterFilterTemplates:
+              - Bounded: true
+                Operator: 1001
+                Property: Start Date
+                Removable: false
+                Values:
+                  AnotherDate:
+                    Value:
+                      Type: Variable
+                      VariableName: var
+                    WFSerializationType: WFTextTokenAttachment
+                  Date:
+                    Value:
+                      Type: Variable
+                      VariableName: var
+                    WFSerializationType: WFTextTokenAttachment
+                  Number:
+                    Value:
+                      Type: Variable
+                      VariableName: var
+                    WFSerializationType: WFTextTokenAttachment
+                  Unit: 16
+            WFContentPredicateBoundedDate: false
+          WFSerializationType: WFContentPredicateTableTemplate
+    parameterIdToTemplatePath:
+      AnotherDate:
+        - WFContentItemFilter
+        - Value
+        - WFActionParameterFilterTemplates
+        - "0"
+        - Values
+        - AnotherDate
+        - Value
+      Date:
+        - WFContentItemFilter
+        - Value
+        - WFActionParameterFilterTemplates
+        - "0"
+        - Values
+        - Date
+        - Value
+      Number:
+        - WFContentItemFilter
+        - Value
+        - WFActionParameterFilterTemplates
+        - "0"
+        - Values
+        - Number
+        - Value
+  override:
+    name: is.workflow.actions.filter.calendarevents.in.the.last
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.getupcomingevents
+    description: >-
+      Gets upcoming calendar events, ordered from nearest to farthest away in
+      time.
+
+      Returns Upcoming Events (EKEvent)
+    parameters:
+      WFGetUpcomingItemCount:
+        required: false
+        description: " (WFStepperParameter) WFGetUpcomingItemCount: Number of Events"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.getupcomingevents
+      WFWorkflowActionParameters:
+        UUID: 6821B904-6C32-430F-BC1D-D45E3FE79974
+        WFGetUpcomingItemCount:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFGetUpcomingItemCount:
+        - WFGetUpcomingItemCount
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.properties.eventattendees
+    description: is.workflow.actions.properties.eventattendees
+    parameters:
+      WFContentItemPropertyName:
+        required: true
+        description: WFContentItemPropertyName
+        type: string
+      WFInput:
+        required: true
+        description: WFInput
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.properties.eventattendees
+      WFWorkflowActionParameters:
+        UUID: 94AC2650-E710-4062-A589-9A7294D57E0A
+        WFContentItemPropertyName:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFInput:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFContentItemPropertyName:
+        - WFContentItemPropertyName
+        - Value
+      WFInput:
+        - WFInput
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.removeevents
+    description: Removes all events passed into the action from the calendars they
+      are contained in.
+    parameters:
+      WFCalendarIncludeFutureEvents:
+        required: true
+        description: " (WFSwitchParameter) When enabled, any repeats of an event in the
+          future are also removed."
+        type: string
+      WFInputEvents:
+        required: true
+        description: " (WFVariablePickerParameter) Events"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.removeevents
+      WFWorkflowActionParameters:
+        WFCalendarIncludeFutureEvents:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFInputEvents:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFCalendarIncludeFutureEvents:
+        - WFCalendarIncludeFutureEvents
+        - Value
+      WFInputEvents:
+        - WFInputEvents
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.showincalendar
+    description: Shows the date or calendar event passed as input in the Calendar app.
+    parameters:
+      WFEvent:
+        required: true
+        description: " (WFVariablePickerParameter) Event"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.showincalendar
+      WFWorkflowActionParameters:
+        WFEvent:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFEvent:
+        - WFEvent
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.addnewevent
+    description: |-
+      Creates a new event and adds it to the selected calendar.
+      Returns New Event (EKEvent)
+    parameters:
+      WFCalendarItemEndDate:
+        required: true
+        description: " (WFDateFieldParameter) Text representing the date this event
+          finishes."
+        type: string
+      WFCalendarItemStartDate:
+        required: true
+        description: " (WFDateFieldParameter) Text representing the date this event
+          begins. Examples: “tomorrow at 2”, “January 3”, “8:00pm”"
+        type: string
+      WFCalendarItemTitle:
+        required: true
+        description: " (WFTextInputParameter) The title of this event."
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.addnewevent
+      WFWorkflowActionParameters:
+        UUID: F4382CD1-762D-4166-973A-F048BD48F9BA
+        WFCalendarItemEndDate:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        WFCalendarItemStartDate:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        WFCalendarItemTitle:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      WFCalendarItemEndDate:
+        - WFCalendarItemEndDate
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      WFCalendarItemStartDate:
+        - WFCalendarItemStartDate
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      WFCalendarItemTitle:
+        - WFCalendarItemTitle
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.dnd.getfocus
+    description: |-
+      Returns the currently active Focus.
+      Returns Current Focus (WFFocusModeContentItem)
+    parameters: {}
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.dnd.getfocus
+      WFWorkflowActionParameters:
+        UUID: 50F6ACA7-6914-485B-AB45-4D444101B90C
+    parameterIdToTemplatePath: {}
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.getdevicedetails
+    description: |-
+      Gets information about the current device.
+      Returns Device Details (NSString, NSNumber)
+    parameters:
+      WFDeviceDetail:
+        required: false
+        description: " (WFEnumerationParameter) Get"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.getdevicedetails
+      WFWorkflowActionParameters:
+        WFDeviceDetail:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFDeviceDetail:
+        - WFDeviceDetail
+        - Value
+- type: shortcuts
+  definition:
+    name: com.culturedcode.ThingsMac.TAIAddHeading
+    description: com.culturedcode.ThingsMac.TAIAddHeading
+    parameters:
+      project:
+        required: true
+        description: project
+        type: string
+      title:
+        required: true
+        description: title
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.culturedcode.ThingsMac.TAIAddHeading
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: TAIAddHeading
+          BundleIdentifier: com.culturedcode.ThingsMac
+          Name: Things
+          TeamIdentifier: JLMPQHK86H
+        UUID: C613332B-74F8-4E97-BB9F-C84217B5A703
+        project:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        title:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      project:
+        - project
+        - Value
+      title:
+        - title
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: com.culturedcode.ThingsMac.TAIAddProject
+    description: com.culturedcode.ThingsMac.TAIAddProject
+    parameters:
+      area:
+        required: true
+        description: area
+        type: string
+      title:
+        required: true
+        description: title
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.culturedcode.ThingsMac.TAIAddProject
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: TAIAddProject
+          BundleIdentifier: com.culturedcode.ThingsMac
+          Name: Things
+          TeamIdentifier: JLMPQHK86H
+        CustomOutputName: var
+        UUID: A25A0F4D-AD0C-45E2-99AC-A8F68E7C2EAB
+        area:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        title:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      area:
+        - area
+        - Value
+      title:
+        - title
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: com.culturedcode.ThingsMac.TAIAddTodo2
+    description: com.culturedcode.ThingsMac.TAIAddTodo2
+    parameters:
+      title:
+        required: true
+        description: title
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.culturedcode.ThingsMac.TAIAddTodo2
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: TAIAddTodo2
+          BundleIdentifier: com.culturedcode.ThingsMac
+          Name: Things
+          TeamIdentifier: JLMPQHK86H
+        UUID: E4B1E95B-3B86-4471-BE84-D8B8CFCE13D4
+        title:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      title:
+        - title
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: com.culturedcode.ThingsMac.TAIAddTodoWithQuickEntry
+    description: com.culturedcode.ThingsMac.TAIAddTodoWithQuickEntry
+    parameters:
+      deadline:
+        required: true
+        description: deadline
+        type: string
+      start:
+        required: true
+        description: start
+        type: string
+      status:
+        required: true
+        description: status
+        type: string
+      title:
+        required: true
+        description: title
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.culturedcode.ThingsMac.TAIAddTodoWithQuickEntry
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: TAIAddTodoWithQuickEntry
+          BundleIdentifier: com.culturedcode.ThingsMac
+          Name: Things
+          TeamIdentifier: JLMPQHK86H
+        UUID: 0BF2F69D-922F-4181-B6DB-14C35640C286
+        deadline:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        start:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        status:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        title:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      deadline:
+        - deadline
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      start:
+        - start
+        - Value
+      status:
+        - status
+        - Value
+      title:
+        - title
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: com.culturedcode.ThingsMac.TAIDeleteItems
+    description: com.culturedcode.ThingsMac.TAIDeleteItems
+    parameters:
+      entities:
+        required: true
+        description: entities
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.culturedcode.ThingsMac.TAIDeleteItems
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: TAIDeleteItems
+          BundleIdentifier: com.culturedcode.ThingsMac
+          Name: Things
+          TeamIdentifier: JLMPQHK86H
+        UUID: CA6A6F2E-01F4-428B-A2DC-05566D2A8D56
+        entities:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      entities:
+        - entities
+        - Value
+- type: shortcuts
+  definition:
+    name: com.culturedcode.ThingsMac.TAIDuplicateItems
+    description: com.culturedcode.ThingsMac.TAIDuplicateItems
+    parameters:
+      items:
+        required: true
+        description: items
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.culturedcode.ThingsMac.TAIDuplicateItems
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: TAIDuplicateItems
+          BundleIdentifier: com.culturedcode.ThingsMac
+          Name: Things
+          TeamIdentifier: JLMPQHK86H
+        UUID: 23986B1A-F782-429B-9AFD-F8C3B28D5538
+        items:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      items:
+        - items
+        - Value
+- type: shortcuts
+  definition:
+    name: com.culturedcode.ThingsMac.TAIEditItems
+    description: com.culturedcode.ThingsMac.TAIEditItems
+    parameters:
+      detail:
+        required: true
+        description: detail
+        type: string
+      items:
+        required: true
+        description: items
+        type: string
+      unsetDetailAction:
+        required: true
+        description: unsetDetailAction
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.culturedcode.ThingsMac.TAIEditItems
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: TAIEditItems
+          BundleIdentifier: com.culturedcode.ThingsMac
+          Name: Things
+          TeamIdentifier: JLMPQHK86H
+        UUID: 8EFBF831-81C9-4D70-88D0-96508169B2D8
+        detail:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        items:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        unsetDetailAction:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      detail:
+        - detail
+        - Value
+      items:
+        - items
+        - Value
+      unsetDetailAction:
+        - unsetDetailAction
+        - Value
+- type: shortcuts
+  definition:
+    name: com.culturedcode.ThingsMac.TAIItemEntity
+    description: com.culturedcode.ThingsMac.TAIItemEntity
+    parameters:
+      WFContentItemFilter:
+        required: true
+        description: WFContentItemFilter
+        type: string
+      WFContentItemInputParameter:
+        required: true
+        description: WFContentItemInputParameter
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.culturedcode.ThingsMac.TAIItemEntity
+      WFWorkflowActionParameters:
+        UUID: 1BECB5D1-7436-4252-A9B1-00A803ECF310
+        WFContentItemFilter:
+          Value:
+            WFActionParameterFilterPrefix: 1
+            WFActionParameterFilterTemplates:
+              - Operator: 99
+                Property: title
+                Removable: true
+                Values:
+                  Bool: false
+                  String:
+                    Value:
+                      attachmentsByRange:
+                        "{0, 1}":
+                          Type: Variable
+                          VariableName: var
+                      string: ￼
+                    WFSerializationType: WFTextTokenString
+                  Unit: 4
+            WFContentPredicateBoundedDate: false
+          WFSerializationType: WFContentPredicateTableTemplate
+        WFContentItemInputParameter:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFContentItemFilter:
+        - WFContentItemFilter
+        - Value
+        - WFActionParameterFilterTemplates
+        - "0"
+        - Values
+        - String
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      WFContentItemInputParameter:
+        - WFContentItemInputParameter
+        - Value
+- type: shortcuts
+  definition:
+    name: com.culturedcode.ThingsMac.TAIItemEntity
+    description: com.culturedcode.ThingsMac.TAIItemEntity
+    parameters:
+      WFContentItemInputParameter:
+        required: true
+        description: WFContentItemInputParameter
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.culturedcode.ThingsMac.TAIItemEntity
+      WFWorkflowActionParameters:
+        UUID: AC30A43A-4812-4CA5-8B34-41F10284A175
+        WFContentItemFilter:
+          Value:
+            WFActionParameterFilterPrefix: 1
+            WFActionParameterFilterTemplates:
+              - Operator: 1002
+                Property: deadline
+                Removable: true
+                Values:
+                  Bool: false
+                  Unit: 4
+            WFContentPredicateBoundedDate: false
+          WFSerializationType: WFContentPredicateTableTemplate
+        WFContentItemInputParameter:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFContentItemInputParameter:
+        - WFContentItemInputParameter
+        - Value
+- type: shortcuts
+  definition:
+    name: com.culturedcode.ThingsMac.TAIShowItems2
+    description: com.culturedcode.ThingsMac.TAIShowItems2
+    parameters:
+      items:
+        required: true
+        description: items
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.culturedcode.ThingsMac.TAIShowItems2
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: TAIShowItems2
+          BundleIdentifier: com.culturedcode.ThingsMac
+          Name: Things
+          TeamIdentifier: JLMPQHK86H
+        UUID: 35551C1B-7AE6-48BA-8C13-EA8C715E56C7
+        items:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      items:
+        - items
+        - Value
+- type: shortcuts
+  definition:
+    name: com.culturedcode.ThingsMac.TAIShowList2
+    description: com.culturedcode.ThingsMac.TAIShowList2
+    parameters:
+      list:
+        required: true
+        description: list
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.culturedcode.ThingsMac.TAIShowList2
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: TAIShowList2
+          BundleIdentifier: com.culturedcode.ThingsMac
+          Name: Things
+          TeamIdentifier: JLMPQHK86H
+        UUID: 16404C51-3561-44C2-AEB5-E2FD773B18C8
+        list:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      list:
+        - list
+        - Value
+- type: shortcuts
+  definition:
+    name: com.culturedcode.ThingsMac.TINRunThingsURLIntent
+    description: com.culturedcode.ThingsMac.TINRunThingsURLIntent
+    parameters:
+      url:
+        required: true
+        description: url
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.culturedcode.ThingsMac.TINRunThingsURLIntent
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: TINRunThingsURLIntent
+          BundleIdentifier: com.culturedcode.ThingsMac
+          Name: Things
+          TeamIdentifier: JLMPQHK86H
+        UUID: 0B85A20F-EAA0-447A-84EA-34B072296A49
+        url:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      url:
+        - url
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: com.apple.VoiceMemos.ChangeRecordingPlaybackSetting
+    description: CHANGE_RECORDING_PLAYBACK_SETTING_INTENT_TITLE
+    parameters:
+      changeOperation:
+        required: true
+        description: CHANGE_RECORDING_PLAYBACK_SETTING_INTENT_CHANGE_OPERATION_PARAMETER
+        type: string
+      setting:
+        required: true
+        description: CHANGE_RECORDING_PLAYBACK_SETTING_INTENT_SETTING_PARAMETER
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.VoiceMemos.ChangeRecordingPlaybackSetting
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: ChangeRecordingPlaybackSetting
+          BundleIdentifier: com.apple.VoiceMemos
+          Name: Voice Memos
+          TeamIdentifier: "0000000000"
+        UUID: DE6619CF-9DCB-42D8-93EE-63A756B90900
+        changeOperation:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        setting:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      changeOperation:
+        - changeOperation
+        - Value
+      setting:
+        - setting
+        - Value
+- type: shortcuts
+  definition:
+    name: com.apple.VoiceMemos.CreateFolder
+    description: CREATE_FOLDER_INTENT_TITLE
+    parameters:
+      name:
+        required: false
+        description: CREATE_FOLDER_INTENT_NAME_PARAMETER
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.VoiceMemos.CreateFolder
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: CreateFolder
+          BundleIdentifier: com.apple.VoiceMemos
+          Name: Voice Memos
+          TeamIdentifier: "0000000000"
+        UUID: 45D6113B-3A37-4CE2-9EEC-D1D5E63BBA20
+        name:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      name:
+        - name
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: com.apple.VoiceMemos.DeleteFolder
+    description: DELETE_FOLDER_INTENT_TITLE
+    parameters:
+      entities:
+        required: true
+        description: DELETE_FOLDER_INTENT_ENTITIES_PARAMETER
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.VoiceMemos.DeleteFolder
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: DeleteFolder
+          BundleIdentifier: com.apple.VoiceMemos
+          Name: Voice Memos
+          TeamIdentifier: "0000000000"
+        UUID: E6C41E4F-BA37-48FE-B92A-A14F9673F124
+        entities:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      entities:
+        - entities
+        - Value
+- type: shortcuts
+  definition:
+    name: com.apple.VoiceMemos.DeleteRecording
+    description: DELETE_RECORDING_INTENT_TITLE
+    parameters:
+      entities:
+        required: true
+        description: DELETE_RECORDING_INTENT_ENTITIES_PARAMETER
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.VoiceMemos.DeleteRecording
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: DeleteRecording
+          BundleIdentifier: com.apple.VoiceMemos
+          Name: Voice Memos
+          TeamIdentifier: "0000000000"
+        UUID: A3372EB5-7695-4FB6-BF81-7638F5FD96DE
+        entities:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      entities:
+        - entities
+        - Value
+- type: shortcuts
+  definition:
+    name: com.apple.VoiceMemos.OpenFolder
+    description: OPEN_FOLDER_INTENT_TITLE
+    parameters:
+      target:
+        required: true
+        description: OPEN_FOLDER_INTENT_TARGET_PARAMETER
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.VoiceMemos.OpenFolder
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: OpenFolder
+          BundleIdentifier: com.apple.VoiceMemos
+          Name: Voice Memos
+          TeamIdentifier: "0000000000"
+        UUID: C14B1927-0ADA-4756-A001-BBCC66118752
+        target:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      target:
+        - target
+        - Value
+- type: shortcuts
+  definition:
+    name: com.apple.VoiceMemos.PlaybackVoiceMemoIntent
+    description: PLAY_RECORDING_INTENT_TITLE
+    parameters:
+      playbackType:
+        required: true
+        description: PLAY_RECORDING_INTENT_PLAYBACK_TYPE_PARAMETER
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.VoiceMemos.PlaybackVoiceMemoIntent
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: PlaybackVoiceMemoIntent
+          BundleIdentifier: com.apple.VoiceMemos
+          Name: Voice Memos
+          TeamIdentifier: "0000000000"
+        UUID: E029B7BB-7A4F-4D59-9C1B-1BA418826809
+        playbackType:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      playbackType:
+        - playbackType
+        - Value
+- type: shortcuts
+  definition:
+    name: com.apple.VoiceMemos.RecordVoiceMemoIntent
+    description: CREATE_RECORDING_INTENT_TITLE
+    parameters:
+      name:
+        required: false
+        description: CREATE_RECORDING_INTENT_NAME_PARAMETER
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.VoiceMemos.RecordVoiceMemoIntent
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: RecordVoiceMemoIntent
+          BundleIdentifier: com.apple.VoiceMemos
+          Name: Voice Memos
+          TeamIdentifier: "0000000000"
+        UUID: AD7A4E1C-1D91-4038-92D8-E64FFB239E46
+        name:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      name:
+        - name
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: com.apple.VoiceMemos.SearchRecordings
+    description: SEARCH_RECORDINGS_INTENT_TITLE
+    parameters:
+      searchPhrase:
+        required: true
+        description: SEARCH_RECORDINGS_INTENT_SEARCH_PHRASE_PARAMETER
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.VoiceMemos.SearchRecordings
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: SearchRecordings
+          BundleIdentifier: com.apple.VoiceMemos
+          Name: Voice Memos
+          TeamIdentifier: "0000000000"
+        UUID: 3A9EFE6A-6465-4C6E-894D-98FBD7986C5F
+        searchPhrase:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      searchPhrase:
+        - searchPhrase
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: com.apple.VoiceMemos.SelectRecording
+    description: SELECT_RECORDING_INTENT_TITLE
+    parameters:
+      target:
+        required: true
+        description: SELECT_RECORDING_INTENT_TARGET_PARAMETER
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.VoiceMemos.SelectRecording
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: SelectRecording
+          BundleIdentifier: com.apple.VoiceMemos
+          Name: Voice Memos
+          TeamIdentifier: "0000000000"
+        UUID: E9F6DB09-5EB6-431D-84B4-CCFE0F639125
+        target:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      target:
+        - target
+        - Value
+- type: shortcuts
+  definition:
+    name: com.apple.clock.OpenTab
+    description: com.apple.clock.OpenTab
+    parameters:
+      tab:
+        required: true
+        description: tab
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.clock.OpenTab
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: OpenTab
+          BundleIdentifier: com.apple.clock
+          Name: Clock
+          TeamIdentifier: "0000000000"
+        UUID: BD8F8132-8314-42D4-88F2-A245B800BB81
+        tab:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      tab:
+        - tab
+        - Value
+- type: shortcuts
+  definition:
+    name: com.apple.mobiletimer-framework.MobileTimerIntents.MTCreateAlarmIntent
+    description: com.apple.mobiletimer-framework.MobileTimerIntents.MTCreateAlarmIntent
+    parameters:
+      dateComponents:
+        required: true
+        description: dateComponents
+        type: string
+      label:
+        required: true
+        description: label
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.mobiletimer-framework.MobileTimerIntents.MTCreateAlarmIntent
+      WFWorkflowActionParameters:
+        UUID: 3FE96F47-3C3C-4585-BBD3-F9AD58BF7BD6
+        dateComponents:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        label:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        repeatSchedule:
+          displayString: Never
+          value: 0
+    parameterIdToTemplatePath:
+      dateComponents:
+        - dateComponents
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      label:
+        - label
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: com.apple.mobiletimer-framework.MobileTimerIntents.MTGetAlarmsIntent
+    description: com.apple.mobiletimer-framework.MobileTimerIntents.MTGetAlarmsIntent
+    parameters: {}
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.mobiletimer-framework.MobileTimerIntents.MTGetAlarmsIntent
+      WFWorkflowActionParameters:
+        UUID: 7B892508-B3F5-4D75-9D4A-B3CD7069B0D9
+    parameterIdToTemplatePath: {}
+- type: shortcuts
+  definition:
+    name: com.apple.mobiletimer-framework.MobileTimerIntents.MTToggleAlarmIntent
+    description: com.apple.mobiletimer-framework.MobileTimerIntents.MTToggleAlarmIntent
+    parameters:
+      alarm:
+        required: true
+        description: alarm
+        type: string
+      state:
+        required: true
+        description: state
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.mobiletimer-framework.MobileTimerIntents.MTToggleAlarmIntent
+      WFWorkflowActionParameters:
+        UUID: 05642135-99AC-4591-9BC0-B782633FDC35
+        alarm:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        operation: turn
+        state:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      alarm:
+        - alarm
+        - Value
+      state:
+        - state
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.timer.start
+    description: |-
+      Starts a timer in the Clock app for the specified amount of time.
+      Returns undefined (undefined)
+    parameters:
+      WFDuration:
+        required: true
+        description: " (WFDurationQuantityFieldParameter) Duration"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.timer.start
+      WFWorkflowActionParameters:
+        UUID: 6BE95316-A003-4383-AF2B-30CEEB6F437C
+        WFDuration:
+          Value:
+            Magnitude:
+              Type: Variable
+              VariableName: var
+            Unit: min
+          WFSerializationType: WFQuantityFieldValue
+    parameterIdToTemplatePath:
+      WFDuration:
+        - WFDuration
+        - Value
+        - Magnitude
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.addnewcontact
+    description: |-
+      Creates a new contact.
+      Returns New Contact (WFContact)
+    parameters:
+      WFContactCompany:
+        required: true
+        description: " (WFTextInputParameter) The company of the contact."
+        type: string
+      WFContactEmails:
+        required: true
+        description: " (WFEmailAddressFieldParameter) Email Address"
+        type: string
+      WFContactFirstName:
+        required: true
+        description: " (WFTextInputParameter) The first name of the contact."
+        type: string
+      WFContactLastName:
+        required: true
+        description: " (WFTextInputParameter) The last name of the contact."
+        type: string
+      WFContactPhoneNumbers:
+        required: true
+        description: " (WFPhoneNumberFieldParameter) Phone Number"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.addnewcontact
+      WFWorkflowActionParameters:
+        UUID: 0879C12E-3AD2-4CE9-8D22-2175E27B42D2
+        WFContactCompany:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        WFContactEmails:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFContactFirstName:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        WFContactLastName:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        WFContactPhoneNumbers:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFContactCompany:
+        - WFContactCompany
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      WFContactEmails:
+        - WFContactEmails
+        - Value
+      WFContactFirstName:
+        - WFContactFirstName
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      WFContactLastName:
+        - WFContactLastName
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      WFContactPhoneNumbers:
+        - WFContactPhoneNumbers
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.filter.contacts
+    description: is.workflow.actions.filter.contacts
+    parameters:
+      WFContentItemFilter:
+        required: true
+        description: WFContentItemFilter
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.filter.contacts
+      WFWorkflowActionParameters:
+        UUID: 31D092A0-C631-414C-AF75-8B075192D698
+        WFContentItemFilter:
+          Value:
+            WFActionParameterFilterPrefix: 1
+            WFActionParameterFilterTemplates:
+              - Operator: 99
+                Property: Name
+                Removable: true
+                Values:
+                  String:
+                    Value:
+                      attachmentsByRange:
+                        "{0, 1}":
+                          Type: Variable
+                          VariableName: var
+                      string: ￼
+                    WFSerializationType: WFTextTokenString
+                  Unit: 4
+            WFContentPredicateBoundedDate: false
+          WFSerializationType: WFContentPredicateTableTemplate
+    parameterIdToTemplatePath:
+      WFContentItemFilter:
+        - WFContentItemFilter
+        - Value
+        - WFActionParameterFilterTemplates
+        - "0"
+        - Values
+        - String
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+  override:
+    name: is.workflow.actions.filter.contacts.by.name.contains
+    description: This action finds contacts whose name contains the text you specify. Case sensitive.
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.filter.contacts
+    description: is.workflow.actions.filter.contacts
+    parameters:
+      WFContentItemFilter:
+        required: true
+        description: WFContentItemFilter
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.filter.contacts
+      WFWorkflowActionParameters:
+        UUID: FFAD2B4A-9A88-4F13-BD75-774A265535E3
+        WFContentItemFilter:
+          Value:
+            WFActionParameterFilterPrefix: 1
+            WFActionParameterFilterTemplates:
+              - Operator: 99
+                Property: Email Addresses
+                Removable: true
+                Values:
+                  Email:
+                    Value:
+                      attachmentsByRange:
+                        "{0, 1}":
+                          Type: Variable
+                          VariableName: var
+                      string: ￼
+                    WFSerializationType: WFTextTokenString
+                  Unit: 4
+            WFContentPredicateBoundedDate: false
+          WFSerializationType: WFContentPredicateTableTemplate
+    parameterIdToTemplatePath:
+      WFContentItemFilter:
+        - WFContentItemFilter
+        - Value
+        - WFActionParameterFilterTemplates
+        - "0"
+        - Values
+        - Email
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+  override:
+    name: is.workflow.actions.filter.contacts.by.email.contains
+    description: This action finds contacts that have an email address that contains
+      the text you specify. Case sensitive.
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.filter.contacts
+    description: is.workflow.actions.filter.contacts
+    parameters:
+      WFContentItemFilter:
+        required: true
+        description: WFContentItemFilter
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.filter.contacts
+      WFWorkflowActionParameters:
+        UUID: 35E2C43B-AE63-49A8-AF93-63F73D6B3E3C
+        WFContentItemFilter:
+          Value:
+            WFActionParameterFilterPrefix: 1
+            WFActionParameterFilterTemplates:
+              - Operator: 4
+                Property: Birthday
+                Removable: true
+                Values:
+                  Date:
+                    Value:
+                      Type: Variable
+                      VariableName: var
+                    WFSerializationType: WFTextTokenAttachment
+                  Unit: 4
+            WFContentPredicateBoundedDate: false
+          WFSerializationType: WFContentPredicateTableTemplate
+    parameterIdToTemplatePath:
+      WFContentItemFilter:
+        - WFContentItemFilter
+        - Value
+        - WFActionParameterFilterTemplates
+        - "0"
+        - Values
+        - Date
+        - Value
+  override:
+    name: is.workflow.actions.filter.contacts.birthday.is
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.properties.weather.conditions
+    description: is.workflow.actions.properties.weather.conditions
+    parameters:
+      WFContentItemPropertyName:
+        required: true
+        description: WFContentItemPropertyName
+        type: string
+      WFInput:
+        required: true
+        description: WFInput
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.properties.weather.conditions
+      WFWorkflowActionParameters:
+        UUID: 0C470DAA-B509-4756-A0E1-C5CB5AC9B515
+        WFContentItemPropertyName:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFInput:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFContentItemPropertyName:
+        - WFContentItemPropertyName
+        - Value
+      WFInput:
+        - WFInput
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.weather.currentconditions
+    description: |-
+      Gets the current weather conditions at the specified location.
+      Returns Weather Conditions (WFWeatherData)
+    parameters:
+      WFWeatherCustomLocation:
+        required: true
+        description: " (WFLocationParameter) Location"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.weather.currentconditions
+      WFWorkflowActionParameters:
+        UUID: FE8C708C-4606-45C0-9150-D7929777EC01
+        WFWeatherCustomLocation:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFWeatherCustomLocation:
+        - WFWeatherCustomLocation
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.weather.forecast
+    description: |-
+      Gets an hourly or daily weather forecast at the specified location.
+      Returns Weather Conditions (WFWeatherData)
+    parameters:
+      WFWeatherCustomLocation:
+        required: true
+        description: " (WFLocationParameter) Location"
+        type: string
+      WFWeatherForecastType:
+        required: false
+        description: " (WFEnumerationParameter) Type"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.weather.forecast
+      WFWorkflowActionParameters:
+        UUID: 71B3AD32-4DE6-424A-8A8B-605DD5B96E91
+        WFWeatherCustomLocation:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFWeatherForecastType:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFWeatherCustomLocation:
+        - WFWeatherCustomLocation
+        - Value
+      WFWeatherForecastType:
+        - WFWeatherForecastType
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.sendmessage
+    description: Sends a message. Pass images, videos, or other files as input to
+      include attachments.
+    parameters:
+      WFSendMessageActionRecipients:
+        required: true
+        description: " (WFContactHandleFieldParameter) Recipients phone numbers or email addresses. If you want to send to multiple recipients, separate them with commas."
+        type: string
+      WFSendMessageContent:
+        required: true
+        description: " (WFTextInputParameter) Message body"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.sendmessage
+      WFWorkflowActionParameters:
+        IntentAppDefinition:
+          BundleIdentifier: com.apple.MobileSMS
+          Name: Messages
+          TeamIdentifier: "0000000000"
+        ShowWhenRun: true
+        UUID: 30BB6A61-8CE9-4A25-9BDB-F2BA549F45B9
+        WFSendMessageActionRecipients:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFSendMessageContent:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      WFSendMessageActionRecipients:
+        - WFSendMessageActionRecipients
+        - Value
+      WFSendMessageContent:
+        - WFSendMessageContent
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.documentpicker.open
+    description: |-
+      Gets a file or folder by a relative path, starting at a folder you choose.
+      Returns File (public.data, public.folder)
+    parameters:
+      WFFile:
+        required: true
+        description: " (WFFilePickerParameter) Folder"
+        type: string
+      WFGetFilePath:
+        required: true
+        description: " (WFTextInputParameter) The relative path to retrieve, such as
+          “folder/file.txt”"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.documentpicker.open
+      WFWorkflowActionParameters:
+        UUID: 90C947F9-D63C-4EF0-86CF-EDEF65B06956
+        WFFile:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFGetFilePath:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      WFFile:
+        - WFFile
+        - Value
+      WFGetFilePath:
+        - WFGetFilePath
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.file.createfolder
+    description: |-
+      Makes a new folder.
+      Returns Created Folder (public.data)
+    parameters:
+      WFFilePath:
+        required: true
+        description: " (WFTextInputParameter) The path of the new folder. For example,
+          if you want to create “Adventure” in an existing folder titled
+          “Photos”, put “/Photos/Adventure/”"
+        type: string
+      WFFolder:
+        required: true
+        description: " (WFFilePickerParameter) Folder"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.file.createfolder
+      WFWorkflowActionParameters:
+        UUID: 5E2FAA74-1B47-4D3F-BCC0-B0F84C321472
+        WFFilePath:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        WFFolder:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFFilePath:
+        - WFFilePath
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      WFFolder:
+        - WFFolder
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.file.delete
+    description: Deletes the files passed in as input.
+    parameters:
+      WFInput:
+        required: true
+        description: " (WFFilePickerParameter) Files"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.file.delete
+      WFWorkflowActionParameters:
+        WFInput:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFInput:
+        - WFInput
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.file.getfoldercontents
+    description: |-
+      This action gets the files inside of the specified folder.
+      Returns undefined (public.data)
+    parameters:
+      WFFolder:
+        required: true
+        description: " (WFFilePickerParameter) Folder"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.file.getfoldercontents
+      WFWorkflowActionParameters:
+        UUID: 9EB5A12E-2F80-479E-A62C-A0ABED4274EC
+        WFFolder:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFFolder:
+        - WFFolder
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.file.label
+    description: Applies a label to the specified files.
+    parameters:
+      WFInput:
+        required: true
+        description: " (WFFilePickerParameter) Files"
+        type: string
+      WFLabelColorNumber:
+        required: true
+        description: " (WFFileLabelColorPickerParameter) Label Color"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.file.label
+      WFWorkflowActionParameters:
+        UUID: 7F083F39-406F-4509-9959-351FCA9532CE
+        WFInput:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFLabelColorNumber:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFInput:
+        - WFInput
+        - Value
+      WFLabelColorNumber:
+        - WFLabelColorNumber
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.file.move
+    description: |-
+      Moves the specified file to a new location.
+      Returns File (public.data)
+    parameters:
+      WFFile:
+        required: true
+        description: " (WFFilePickerParameter) File"
+        type: string
+      WFFolder:
+        required: true
+        description: " (WFFilePickerParameter) Folder"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.file.move
+      WFWorkflowActionParameters:
+        UUID: A28BD348-9E04-4166-B561-C0CA1DAFCFAA
+        WFFile:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFFolder:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFFile:
+        - WFFile
+        - Value
+      WFFolder:
+        - WFFolder
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.file.rename
+    description: |-
+      Renames the specified file.
+      Returns File (public.data)
+    parameters:
+      WFFile:
+        required: true
+        description: " (WFFilePickerParameter) File"
+        type: string
+      WFNewFilename:
+        required: true
+        description: " (WFTextInputParameter) Name"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.file.rename
+      WFWorkflowActionParameters:
+        UUID: 6904FF93-8218-4584-9EC0-7C92492CBD92
+        WFFile:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFNewFilename:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      WFFile:
+        - WFFile
+        - Value
+      WFNewFilename:
+        - WFNewFilename
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.file.reveal
+    description: Opens windows in the Finder with the specified files selected.
+    parameters:
+      WFFile:
+        required: true
+        description: " (WFFilePickerParameter) Files"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.file.reveal
+      WFWorkflowActionParameters:
+        UUID: 1F53E228-F927-42DD-9FAE-BB50FB8281D4
+        WFFile:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFFile:
+        - WFFile
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.file.select
+    description: |-
+      Prompts to select files or folders.
+      Returns File (public.data, public.folder)
+    parameters:
+      WFPickingMode:
+        required: false
+        description: " (WFEnumerationParameter) Type"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.file.select
+      WFWorkflowActionParameters:
+        UUID: 7CE47563-00EC-4809-842E-E1C095C45474
+        WFPickingMode:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFPickingMode:
+        - WFPickingMode
+        - Value
+- type: shortcuts
+  definition:
+    name: com.apple.reminders.TTRCreateListAppIntent
+    description: Create List
+    parameters:
+      name:
+        required: false
+        description: Name
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: com.apple.reminders.TTRCreateListAppIntent
+      WFWorkflowActionParameters:
+        AppIntentDescriptor:
+          AppIntentIdentifier: TTRCreateListAppIntent
+          BundleIdentifier: com.apple.reminders
+          Name: Reminders
+          TeamIdentifier: "0000000000"
+        UUID: DC5CF2C0-4853-44A3-A063-7051914E7789
+        name:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      name:
+        - name
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.addnewreminder
+    description: |-
+      Creates a new reminder and adds it to the selected list of reminders.
+      Returns New Reminder (REMReminder)
+    parameters:
+      WFCalendarDescriptor:
+        required: true
+        description: " (WFRemindersListPickerParameter) The list of reminders to add
+          this reminder to."
+        type: string
+      WFCalendarItemTitle:
+        required: true
+        description: " (WFTextInputParameter) The title of this reminder."
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.addnewreminder
+      WFWorkflowActionParameters:
+        UUID: FE52B3F7-799D-4928-A5C0-593C25EFF771
+        WFAlertEnabled: No Alert
+        WFCalendarDescriptor:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFCalendarItemTitle:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      WFCalendarDescriptor:
+        - WFCalendarDescriptor
+        - Value
+      WFCalendarItemTitle:
+        - WFCalendarItemTitle
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.filter.reminders
+    description: is.workflow.actions.filter.reminders
+    parameters:
+      WFContentItemFilter:
+        required: true
+        description: WFContentItemFilter
+        type: string
+      WFContentItemInputParameter:
+        required: true
+        description: WFContentItemInputParameter
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.filter.reminders
+      WFWorkflowActionParameters:
+        UUID: 96332A93-436B-435F-B23F-23E2166E0CFD
+        WFContentItemFilter:
+          Value:
+            WFActionParameterFilterPrefix: 1
+            WFActionParameterFilterTemplates:
+              - Operator: 4
+                Property: List
+                Removable: true
+                Values:
+                  Enumeration:
+                    Value:
+                      Value:
+                        Type: Variable
+                        VariableName: var
+                      WFSerializationType: WFTextTokenAttachment
+                    WFSerializationType: WFStringSubstitutableState
+            WFContentPredicateBoundedDate: false
+          WFSerializationType: WFContentPredicateTableTemplate
+        WFContentItemInputParameter:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFContentItemFilter:
+        - WFContentItemFilter
+        - Value
+        - WFActionParameterFilterTemplates
+        - "0"
+        - Values
+        - Enumeration
+        - Value
+        - Value
+      WFContentItemInputParameter:
+        - WFContentItemInputParameter
+        - Value
+  override:
+    name: is.workflow.actions.filter.reminders.name.contains
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.filter.reminders
+    description: is.workflow.actions.filter.reminders
+    parameters:
+      WFContentItemFilter:
+        required: true
+        description: WFContentItemFilter
+        type: string
+      WFContentItemInputParameter:
+        required: true
+        description: WFContentItemInputParameter
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.filter.reminders
+      WFWorkflowActionParameters:
+        UUID: BF56C82E-7D85-4C83-865B-A3FB3462A310
+        WFContentItemFilter:
+          Value:
+            WFActionParameterFilterPrefix: 1
+            WFActionParameterFilterTemplates:
+              - Operator: 4
+                Property: Title
+                Removable: true
+                Values:
+                  String:
+                    Value:
+                      attachmentsByRange:
+                        "{0, 1}":
+                          Type: Variable
+                          VariableName: var
+                      string: ￼
+                    WFSerializationType: WFTextTokenString
+            WFContentPredicateBoundedDate: false
+          WFSerializationType: WFContentPredicateTableTemplate
+        WFContentItemInputParameter:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFContentItemFilter:
+        - WFContentItemFilter
+        - Value
+        - WFActionParameterFilterTemplates
+        - "0"
+        - Values
+        - String
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      WFContentItemInputParameter:
+        - WFContentItemInputParameter
+        - Value
+  override:
+    name: is.workflow.actions.filter.reminders.title.contains
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.getupcomingreminders
+    description: |-
+      Gets upcoming reminders, ordered from nearest to farthest away due date.
+      Returns Upcoming Reminders (REMReminder)
+    parameters:
+      WFGetUpcomingItemCalendar:
+        required: true
+        description: " (WFRemindersListPickerParameter) List"
+        type: string
+      WFGetUpcomingItemCount:
+        required: false
+        description: " (WFStepperParameter) WFGetUpcomingItemCount"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.getupcomingreminders
+      WFWorkflowActionParameters:
+        UUID: CE406F4A-5788-4F42-9CAA-A19CA5FBB4C4
+        WFGetUpcomingItemCalendar:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFGetUpcomingItemCount:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFGetUpcomingItemCalendar:
+        - WFGetUpcomingItemCalendar
+        - Value
+      WFGetUpcomingItemCount:
+        - WFGetUpcomingItemCount
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.appearance
+    description: is.workflow.actions.appearance
+    parameters: {}
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.appearance
+      WFWorkflowActionParameters:
+        operation: set
+        style: dark
+    parameterIdToTemplatePath: {}
+  override:
+    name: is.workflow.actions.appearance.set.dark
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.appearance
+    description: is.workflow.actions.appearance
+    parameters: {}
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.appearance
+      WFWorkflowActionParameters:
+        style: light
+    parameterIdToTemplatePath: {}
+  override:
+    name: is.workflow.actions.appearance.set.light
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.displaysleep
+    description: Puts the display(s) of this Mac to sleep.
+    parameters: {}
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.displaysleep
+      WFWorkflowActionParameters: {}
+    parameterIdToTemplatePath: {}
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.dnd.set
+    description: Sets the specified Focus on or off.
+    parameters:
+      Enabled:
+        required: true
+        description: " (WFSwitchParameter) State"
+        type: string
+      FocusModes:
+        required: true
+        description: " (WFFocusModesPickerParameter) Focus"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.dnd.set
+      WFWorkflowActionParameters:
+        Enabled:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        FocusModes:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      Enabled:
+        - Enabled
+        - Value
+      FocusModes:
+        - FocusModes
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.filter.displays
+    description: is.workflow.actions.filter.displays
+    parameters:
+      WFContentItemInputParameter:
+        required: true
+        description: WFContentItemInputParameter
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.filter.displays
+      WFWorkflowActionParameters:
+        WFContentItemInputParameter:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFContentItemInputParameter:
+        - WFContentItemInputParameter
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.filter.windows
+    description: is.workflow.actions.filter.windows
+    parameters:
+      WFContentItemInputParameter:
+        required: true
+        description: WFContentItemInputParameter
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.filter.windows
+      WFWorkflowActionParameters:
+        UUID: 0E16BEF6-DD49-4929-A478-64495EA6564B
+        WFContentItemInputParameter:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFContentItemInputParameter:
+        - WFContentItemInputParameter
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.getbatterylevel
+    description: >-
+      Returns information about the battery and any charger connected to the
+      device.
+
+      Returns Battery State (NSDecimalNumber, WFBooleanContentItem)
+    parameters:
+      Subject:
+        required: false
+        description: " (WFEnumerationParameter) Get"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.getbatterylevel
+      WFWorkflowActionParameters:
+        Subject:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        UUID: 597CB190-3A0F-4F03-977D-8AD4517BB5A9
+    parameterIdToTemplatePath:
+      Subject:
+        - Subject
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.getipaddress
+    description: |-
+      Returns the local or external IP address of the device.
+      Returns Current IP Address (NSString)
+    parameters:
+      WFIPAddressSourceOption:
+        required: false
+        description: " (WFEnumerationParameter) Address"
+        type: string
+      WFIPAddressTypeOption:
+        required: false
+        description: " (WFEnumerationParameter) Type"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.getipaddress
+      WFWorkflowActionParameters:
+        WFIPAddressSourceOption:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFIPAddressTypeOption:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFIPAddressSourceOption:
+        - WFIPAddressSourceOption
+        - Value
+      WFIPAddressTypeOption:
+        - WFIPAddressTypeOption
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.getwifi
+    description: |-
+      Gets information about the currently connected networks.
+      Returns Network Details (NSString, NSNumber)
+    parameters:
+      WFNetworkDetailsNetwork:
+        required: true
+        description: " (WFNetworkPickerParameter) Network"
+        type: string
+      WFWiFiDetail:
+        required: false
+        description: " (WFGetWiFiDetailEnumerationParameter) Get"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.getwifi
+      WFWorkflowActionParameters:
+        UUID: 0ACDD967-5F3C-4160-86E3-205D0F660D9D
+        WFNetworkDetailsNetwork:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFWiFiDetail:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFNetworkDetailsNetwork:
+        - WFNetworkDetailsNetwork
+        - Value
+      WFWiFiDetail:
+        - WFWiFiDetail
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.lockscreen
+    description: Locks the screen of this device.
+    parameters: {}
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.lockscreen
+      WFWorkflowActionParameters: {}
+    parameterIdToTemplatePath: {}
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.logout
+    description: Logs out the current user.
+    parameters: {}
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.logout
+      WFWorkflowActionParameters: {}
+    parameterIdToTemplatePath: {}
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.movewindow
+    description: Moves one or more windows to the specified location.
+    parameters:
+      WFPosition:
+        required: false
+        description: " (WFEnumerationParameter) Position"
+        type: string
+      WFWindow:
+        required: true
+        description: " (WFVariablePickerParameter) Window"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.movewindow
+      WFWorkflowActionParameters:
+        UUID: 651BE95F-F03D-4E61-B1BC-E276D24F195F
+        WFPosition:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFWindow:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFPosition:
+        - WFPosition
+        - Value
+      WFWindow:
+        - WFWindow
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.nightshift.set
+    description: is.workflow.actions.nightshift.set
+    parameters:
+      OnValue:
+        required: true
+        description: OnValue
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.nightshift.set
+      WFWorkflowActionParameters:
+        OnValue:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        operation: set
+    parameterIdToTemplatePath:
+      OnValue:
+        - OnValue
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.openapp
+    description: |-
+      Opens the specified app.
+      Returns App (WFAppContentItem)
+    parameters:
+      WFSelectedApp:
+        required: true
+        description: " (WFAppPickerParameter) App"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.openapp
+      WFWorkflowActionParameters:
+        UUID: 1C1A9E3F-3980-46ED-8E51-B05E79E1FD65
+        WFSelectedApp:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFSelectedApp:
+        - WFSelectedApp
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.quit.app
+    description: Quits one or all open applications. You can choose a list of apps
+      to keep open.
+    parameters:
+      WFApp:
+        required: true
+        description: " (WFAppPickerParameter) App"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.quit.app
+      WFWorkflowActionParameters:
+        WFApp:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFQuitAppMode: App
+    parameterIdToTemplatePath:
+      WFApp:
+        - WFApp
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.reboot
+    description: Shuts down or restarts your device.
+    parameters:
+      WFShutdownMode:
+        required: false
+        description: " (WFEnumerationParameter) Mode"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.reboot
+      WFWorkflowActionParameters:
+        WFShutdownMode:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFShutdownMode:
+        - WFShutdownMode
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.resizewindow
+    description: Resizes one or more windows to the specified width and height.
+    parameters:
+      WFConfiguration:
+        required: false
+        description: " (WFEnumerationParameter) Configuration"
+        type: string
+      WFWindow:
+        required: true
+        description: " (WFVariablePickerParameter) Window"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.resizewindow
+      WFWorkflowActionParameters:
+        UUID: 14F6A195-FE75-48BB-9311-4C3F7F52FA94
+        WFConfiguration:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFWindow:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFConfiguration:
+        - WFConfiguration
+        - Value
+      WFWindow:
+        - WFWindow
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.runapplescript
+    description: >-
+      This action executes an AppleScript.
+
+      Returns AppleScript Result (WFDictionaryContentItem, WFStringContentItem, WFBooleanContentItem, WFNumberContentItem)
+    parameters:
+      Input:
+        required: true
+        description: " (WFVariablePickerParameter) Input"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.runapplescript
+      WFWorkflowActionParameters:
+        Input:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        Script: ""
+        UUID: B8C2A251-515A-4DAD-AFB3-2CD6D370BE4D
+    parameterIdToTemplatePath:
+      Input:
+        - Input
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.sleep
+    description: Put this Mac to sleep.
+    parameters: {}
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.sleep
+      WFWorkflowActionParameters: {}
+    parameterIdToTemplatePath: {}
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.startscreensaver
+    description: Starts the screen saver selected in the Desktop & Screen Saver
+      preference pane.
+    parameters: {}
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.startscreensaver
+      WFWorkflowActionParameters:
+        UUID: 4BD3B759-459C-4309-9C91-7F509A882B27
+    parameterIdToTemplatePath: {}
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.truetone.set
+    description: is.workflow.actions.truetone.set
+    parameters:
+      OnValue:
+        required: true
+        description: OnValue
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.truetone.set
+      WFWorkflowActionParameters:
+        OnValue:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        operation: set
+    parameterIdToTemplatePath:
+      OnValue:
+        - OnValue
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.wifi.set
+    description: is.workflow.actions.wifi.set
+    parameters:
+      OnValue:
+        required: true
+        description: OnValue
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.wifi.set
+      WFWorkflowActionParameters:
+        OnValue:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      OnValue:
+        - OnValue
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.getepisodesforpodcast
+    description: |-
+      Returns a list of episodes from a podcast show.
+      Returns Episodes (WFPodcastEpisodeContentItem)
+    parameters:
+      WFInput:
+        required: true
+        description: " (WFPodcastPickerParameter) Podcast"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.getepisodesforpodcast
+      WFWorkflowActionParameters:
+        UUID: CB637C95-7370-4607-AB50-661BD057DC78
+        WFInput:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFInput:
+        - WFInput
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.getpodcastsfromlibrary
+    description: |-
+      Gets a list of all shows in your Podcast library.
+      Returns Podcasts (WFPodcastShowContentItem)
+    parameters: {}
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.getpodcastsfromlibrary
+      WFWorkflowActionParameters:
+        UUID: 8DCB6D8B-3203-4171-B0AA-81A4CE748278
+    parameterIdToTemplatePath: {}
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.playpodcast
+    description: Plays a podcast using the Podcasts app.
+    parameters:
+      WFPodcastShow:
+        required: true
+        description: " (WFPodcastPickerParameter) Podcast"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.playpodcast
+      WFWorkflowActionParameters:
+        UUID: 1B78CF92-3B3F-4B02-BADD-F82D4D293754
+        WFPodcastShow:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFPodcastShow:
+        - WFPodcastShow
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.podcasts.subscribe
+    description: Follows podcasts or podcast feed URLs passed into the action.
+    parameters:
+      WFInput:
+        required: true
+        description: " (WFTextInputParameter) Podcast URL"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.podcasts.subscribe
+      WFWorkflowActionParameters:
+        UUID: C04B0FB8-7929-4796-BC45-0C5BFEEDEEF8
+        WFInput:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFInput:
+        - WFInput
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.properties.podcast
+    description: |-
+      is.workflow.actions.properties.podcast
+      Returns undefined (undefined)
+    parameters:
+      WFContentItemPropertyName:
+        required: true
+        description: WFContentItemPropertyName
+        type: string
+      WFInput:
+        required: true
+        description: WFInput
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.properties.podcast
+      WFWorkflowActionParameters:
+        UUID: CF8EC507-E5E8-4EB0-9245-AEB36833E3BB
+        WFContentItemPropertyName:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFInput:
+          Value:
+            Aggrandizements:
+              - CoercionItemClass: WFStringContentItem
+                Type: WFCoercionVariableAggrandizement
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFContentItemPropertyName:
+        - WFContentItemPropertyName
+        - Value
+      WFInput:
+        - WFInput
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.properties.podcastshow
+    description: |-
+      is.workflow.actions.properties.podcastshow
+      Returns undefined (undefined)
+    parameters:
+      WFContentItemPropertyName:
+        required: true
+        description: WFContentItemPropertyName
+        type: string
+      WFInput:
+        required: true
+        description: WFInput
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.properties.podcastshow
+      WFWorkflowActionParameters:
+        UUID: 2B8132C9-8880-439B-ADBE-53BAE27A1CBC
+        WFContentItemPropertyName:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFInput:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFContentItemPropertyName:
+        - WFContentItemPropertyName
+        - Value
+      WFInput:
+        - WFInput
+        - Value
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.searchpodcasts
+    description: >-
+      Finds podcasts in the Apple Podcasts catalog, returning the items that
+      match the specified search terms.
+
+      Returns Podcasts (WFPodcastShowContentItem)
+    parameters:
+      WFSearchTerm:
+        required: true
+        description: " (WFTextInputParameter) Search"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.searchpodcasts
+      WFWorkflowActionParameters:
+        UUID: 9CDA8E5B-186C-4056-9A3E-7F0E0F0D4D39
+        WFSearchTerm:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+    parameterIdToTemplatePath:
+      WFSearchTerm:
+        - WFSearchTerm
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+- type: shortcuts
+  definition:
+    name: is.workflow.actions.sendemail
+    description: Presents an email composer. Pass text into the action to set the
+      email body. Other types of input are added as attachments.
+    parameters:
+      WFEmailAccountActionSelectedAccount:
+        required: true
+        description: " (WFMailSenderPickerParameter) From"
+        type: string
+      WFSendEmailActionBccRecipients:
+        required: true
+        description: " (WFEmailAddressFieldParameter) Bcc"
+        type: string
+      WFSendEmailActionCcRecipients:
+        required: true
+        description: " (WFEmailAddressFieldParameter) Cc"
+        type: string
+      WFSendEmailActionInputAttachments:
+        required: true
+        description: " (WFTextInputParameter) Message"
+        type: string
+      WFSendEmailActionSubject:
+        required: true
+        description: " (WFTextInputParameter) Subject"
+        type: string
+      WFSendEmailActionToRecipients:
+        required: true
+        description: " (WFEmailAddressFieldParameter) To"
+        type: string
+    responseType: string
+  metadata:
+    template:
+      WFWorkflowActionIdentifier: is.workflow.actions.sendemail
+      WFWorkflowActionParameters:
+        UUID: 95894BA1-CA43-4283-9113-EA403F096ED8
+        WFEmailAccountActionSelectedAccount:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFSendEmailActionBccRecipients:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFSendEmailActionCcRecipients:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+        WFSendEmailActionInputAttachments:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        WFSendEmailActionShowComposeSheet: false
+        WFSendEmailActionSubject:
+          Value:
+            attachmentsByRange:
+              "{0, 1}":
+                Type: Variable
+                VariableName: var
+            string: ￼
+          WFSerializationType: WFTextTokenString
+        WFSendEmailActionToRecipients:
+          Value:
+            Type: Variable
+            VariableName: var
+          WFSerializationType: WFTextTokenAttachment
+    parameterIdToTemplatePath:
+      WFEmailAccountActionSelectedAccount:
+        - WFEmailAccountActionSelectedAccount
+        - Value
+      WFSendEmailActionBccRecipients:
+        - WFSendEmailActionBccRecipients
+        - Value
+      WFSendEmailActionCcRecipients:
+        - WFSendEmailActionCcRecipients
+        - Value
+      WFSendEmailActionInputAttachments:
+        - WFSendEmailActionInputAttachments
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      WFSendEmailActionSubject:
+        - WFSendEmailActionSubject
+        - Value
+        - attachmentsByRange
+        - "{0, 1}"
+      WFSendEmailActionToRecipients:
+        - WFSendEmailActionToRecipients
+        - Value

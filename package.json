@@ -1,0 +1,59 @@
+{
+  "name": "@iter-ai/toolbox-macos",
+  "version": "0.2.0",
+  "description": "Trigger macOS actions with custom ChatGPTs",
+  "keywords": [
+    "chatgpt",
+    "custom gpt",
+    "macos"
+  ],
+  "license": "Unlicense",
+  "author": "folks at iter <everyone@iter.com>",
+  "bin": {
+    "@iter-ai/toolbox-macos": "cli/src/index.tsx"
+  },
+  "workspaces": {
+    "packages": [
+      "cli",
+      "integration/base",
+      "integration/messages",
+      "integration/shortcuts"
+    ]
+  },
+  "scripts": {
+    "dev": "npm run dev -w @iter-ai/toolbox-macos-cli",
+    "prepare": "husky install",
+    "prettier": "prettier --write ."
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs,mts,tsx,css,md,json,yml,yaml}": "prettier --write"
+  },
+  "prettier": {
+    "importOrder": [
+      "<THIRD_PARTY_MODULES>",
+      "^@iter-ai/(.*)$",
+      "^〻lib/(.*)$",
+      "^[./]"
+    ],
+    "importOrderParserPlugins": [
+      "typescript",
+      "jsx",
+      "decorators-legacy"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "plugins": [
+      "prettier-plugin-packagejson",
+      "@trivago/prettier-plugin-sort-imports"
+    ],
+    "printWidth": 120
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.1.0",
+    "prettier-plugin-packagejson": "^2.4.6",
+    "typescript": "^5.3.2"
+  }
+}

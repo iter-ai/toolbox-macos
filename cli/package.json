@@ -1,0 +1,31 @@
+{
+  "name": "@iter-ai/toolbox-macos-cli",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "license": "Unlicense",
+  "author": "Qi Linzhi <qi@iter.com>",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.tsx",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@asteasolutions/zod-to-openapi": "^6.3.0",
+    "@iter-ai/toolbox-macos-integration": "*",
+    "@iter-ai/toolbox-macos-integration-messages": "*",
+    "@iter-ai/toolbox-macos-integration-shortcuts": "*",
+    "axios": "^1.6.2",
+    "express": "^4.18.2",
+    "ink": "^4.4.1",
+    "react": "^18.2.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^18.18.9",
+    "@types/react": "^18.2.37",
+    "react-devtools-core": "^4.28.5",
+    "tsx": "^4.5.0"
+  }
+}

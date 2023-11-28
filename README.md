@@ -8,6 +8,10 @@
 For a demo see: https://x.com/LinzhiQ/status/1729555314217734240?s=20
 
 
+https://github.com/iter-ai/toolbox-macos/assets/19514537/8ae9287b-4dc0-4bfb-b976-2d9a1c1edb66
+
+
+
 ### Running the macOS Toolbox
 
 On a macOS machine with [Node.js](https://nodejs.org/en/download) installed, run:

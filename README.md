@@ -1,6 +1,12 @@
 # @iter-ai/toolbox-macos
 
-Trigger macOS actions with custom ChatGPTs
+`toolbox-macos` is a minimal package that enables OpenAI GPTs to interact with macOS apps like iMessage, email, or calendar through Shortcuts actions.
+- **Simple Integration**: Easy setup with a local server and GPT API schema.
+- **Privacy-Focused**: Runs locally to keep your data secure.
+- **Versatile**: gives access to 128 APIs from Apple Shortcuts.
+
+For a demo see: https://x.com/LinzhiQ/status/1729555314217734240?s=20
+
 
 ### Running the macOS Toolbox
 

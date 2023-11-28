@@ -32,7 +32,7 @@ Our custom GPT is designed to perform the following five steps:
 2. `selectTools` (`/schema`): providing the schema details for the input actions
 3. `submitPlan` (`/plan`): this endpoint receives a plan from the model in plain text and always returns success. The
    goal of this endpoint is to simply hide the plan from the user.
-4. `submitCritique` (`/critique`): Similarly, this endpoint receives a critique of the plan and always returns success.
+4. `submitCritique` (`/critique`): similarly, this endpoint receives a critique of the plan and always returns success.
    Again, this dummy endpoint hides the critique from the user.
 5. `runTool` (`/run`): this endpoint executes an action that the GPT decides to take with the given parameters.
 
